@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <title>poto</title>
+    <style>
+        @font-face {
+            font-family: 'mafo';
+            src: url(./font/MapoFlowerIsland.ttf);
+            font-weight: 400;
+        }
+        :root{
+            font-family: 'mafo' sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: black;
+
+        }
+        .container{
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        .g-container{
+            grid-template-columns: repeat(4,1fr);
+            column-gap: 20px;
+        }
+        #wrap{
+            overflow: hidden;
+            height: 5000px;
+        }
+        #header{
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            display: grid;
+            padding: 20px 10px;
+            border: 3px double rgb(153, 153, 153) ;
+        }
+        .nav-btn{
+            grid-column: 4/5;
+            display: inline-block;
+            justify-self: end;
+            
+        }
+        
+          
+    </style>
+</head>
+<body>
+    <section id="wrap">
+        <header id="header" class="g-container">
+            <h1><a href="./poto-index.html">폰트 확인 마포 font-mafo</a></h1>
+            <div class="nav-btn">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+            </div>
+        </header>
+        <section></section>
+        <section></section>
+        <section></section>
+        <footer id="footer"></footer>
+    </section>
+</body>
+<script>
+
+</script>
+</html>
