@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./js/jquery_3.7.0_jquery.min.js">
+
+    <title>index</title>
+    <style>
+        @font-face {
+            font-family: 'con';
+            src: url(./font/KOTRA_SONGEULSSI.ttf);
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'son';
+            src: url(./font/SunBatang-Medium.ttf);
+            font-weight: 400;
+        }
+        :root{
+            font-family: 'con' sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1;
+        
+        }
+        h1,h2,h3,h4,h5{
+            font-family: 'con';
+            color: #fff;
+            
+        }
+        #wrap{
+            overflow: hidden;
+            background: #221f1c;
+            opacity: 0.95;
+        }
+        .container{
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+             
+        .header-top{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            align-items: center;
+            padding: 30px 12px;
+        }
+        .header-top h1{
+            grid-column: 2/4;
+            text-align: center;
+            order: 2;
+            font-size: 32px;
+            font-weight: 700;
+            color: #d1cac2;
+        }
+        .header-top::after{
+            content: '';
+            display: block;
+            grid-column: 4/5;
+            order: 3;
+        }
+        .header-top .nav-btn{
+            grid-column: 1/2;
+            order: 1;
+           
+        }
+        #top-nav{
+            display: none;
+            grid-column: 5/13;
+            order: 2;
+        }
+        #top-nav ul{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        #top-nav ul li{
+            margin-left: 20px;
+            font-size: 36px;
+            color: #fff;
+        }
+        .header .nav-btn{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin-top: 30px;
+            padding-left: 12px;
+        }
+        .nav-btn span{
+            display: block;
+            margin-bottom: 6px;
+            width: 26px;
+            height: 3px;
+            background: #ffffff;
+            text-indent: -9999px;
+        }
+        .header-bottom{
+            position: relative;
+        }
+        .h-slider:first-child{
+            position:static;
+        }
+        .h-slider{
+            position: absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0; 
+            transition: 0.3s;           
+        }
+        
+    
+      
+        /* profil */
+        #profil .container h2{
+            margin-top: 40px;
+            margin-bottom: 14px;
+            font-size: 28px;
+            text-align: center;
+            border-top: 3px double #b2a89b; 
+            padding: 18px;    
+        }
+        #profil .container .poto{
+            margin: 0 auto;
+            margin-bottom: 40px;
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: 0 10px 3px -2px rgba(0,0,0,0.75);
+        }
+        .main{
+            background: #6c5848;
+            border-radius: 20px;
+            
+        }
+        .main h3{
+            margin-bottom:15px ;
+            padding-top: 30px;
+            font-size: 24px;
+            text-align: center;
+        }
+        .main p{
+            margin-bottom: 26px;
+            padding: 0 15px;
+            font-family: 'son';
+            font-size: 18px;
+        }
+        .main p:last-of-type{
+            margin-bottom: 0;
+            padding-bottom: 30px;   
+        }
+        #icon{
+            margin: 0 auto;
+        }
+        #icon .container h2{
+            margin-top: 40px;
+            margin-bottom: 41px;
+            font-size: 28px;
+            text-align: center;
+            border-top: 3px double #b2a89b;
+            padding-top: 18px;
+        }
+        .icon-img{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(3,1fr);
+            border-bottom: 3px double #b2a89b;
+           
+        }
+        .img01,.img02{
+            margin-bottom: 10px;
+        } 
+        .img01,.img03{
+            grid-column: 1/2;
+        }
+        .img02,.img04{
+            grid-column: 3/4;
+        }
+        .img05{
+            padding-top:50px ;
+            grid-column: 2/3;
+            grid-row: 2/4;
+        }
+        #main-design h2{
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 28px;
+        }
+        .main-design{
+            display: grid;
+            grid-template-rows:repeat(5,1fr) ;
+            grid-template-columns: repeat(2,1fr);
+            border: 3px dashed #ffe8d5;
+            border-radius: 20px;
+            padding: 20px 0;
+            justify-items: center;
+        }
+        .img-mbox{
+            margin: 0 12px;
+            width: 120px;
+            height: 200px;
+            border: 3px solid #fff7ed;
+            margin-bottom: 10px;
+        }
+        .img-box01{
+            grid-row: 1/2;
+            grid-column: 1/2;
+        }
+        .img-box02{
+            grid-row: 2/3;
+            grid-column: 2/3;
+        }
+        .img-box03{
+            grid-row: 3/4;
+            grid-column: 1/2;
+        }
+        .img-box04{
+            grid-row: 4/5;
+            grid-column: 2/3;
+        }
+        .img-box05{
+            grid-row: 5/6;
+            grid-column: 1/2;
+        }
+        .img-box02,.img-box04{
+            justify-items: end;
+        }
+        
+        #footer{
+            margin-top: 26px;
+            
+        }
+        #footer h2{
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+        #footer h2::before{
+            content: '△';
+            display: none;
+            font-family: 'son';
+            z-index: 1005;
+            
+        }
+        .fot-con{
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: 100px 1fr 1fr;
+            justify-items: center;
+            
+            
+            
+        }
+        .fot-con .img-box{
+           position: absolute;
+        
+            
+        }
+        
+        .fot-con h3{
+            grid-column: 1/4;
+            grid-template-rows: 1/2;
+            padding-top: 18px;
+            font-size: 20px;
+            text-align: center;
+            color: #fff;
+            z-index: 1000;
+        }
+        .fot-con .img-box{
+            grid-row: 1/4;
+            grid-column: 1/4;
+        }
+        .fot-con .potobox{
+            grid-row: 2/3;
+            grid-column: 2/3;
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            z-index: 1001;
+        }
+        .fot-con article{
+            grid-row: 3/4;
+            grid-column: 1/4;
+            z-index: 1002;
+            margin-bottom: 60px;
+        }
+        .fot-con article ul>li{
+            margin-bottom: 10px;
+        }
+        .fot-con article ul>li>a{
+            color: #fff;
+            font-size: 16px;
+        }
+        .icon-box{
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            border-radius: 7px;
+        }
+        .icon-box02 img{
+            width: 26px;
+            height: 20px;
+            margin: 5px 2px;
+        }
+       
+        /* ----------------768px---------------------- */
+        
+        @media (min-width:768px){
+        
+        .container{
+            padding: 0 20px;
+        }
+        .header-top{
+           
+            padding: 30px 20px;
+        }
+
+        #profil .container h2{
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        #profil .container .poto{
+            display: none;
+        }
+        .main{
+            display: grid;
+            grid-template-columns: repeat(8,1fr);
+            grid-template-rows: repeat(3,220px);
+            column-gap: 36px;
+            border: none;
+            background: none;
+        }
+        .main h3{
+           display: none;
+            
+        }
+        .main p:first-of-type{
+            grid-row: 1/4;
+            grid-column: 1/5;
+            padding: 20px 14px ;
+            background: #b2a89b;
+            border-top:5px dashed #412f1f;
+            border-bottom:5px dashed #412f1f;
+            border-radius: 20px;
+            font-size: 28px;
+        }
+        .main p:first-of-type::before{
+            content: '나를 소개합니다.';
+            display: block;
+            clear: both;
+            margin-bottom: 20px;
+            font-family: 'con';
+            font-size: 36px;
+            text-align: center;
+            color: #fff;
+        
+        }
+        .main p:nth-of-type(2){
+            grid-row: 1/3;
+            grid-column: 6/9;
+            padding: 20px 14px;
+            background: #b2a89b;
+            border-top:5px dashed #412f1f;
+            border-bottom:5px dashed #412f1f;
+            border-radius:20px ;
+            font-size: 28px;
+        }
+        .main p:nth-of-type(2)::before{
+            content: '나의 경력';
+            display: block;
+            clear: both;
+            margin-bottom: 20px;
+            font-family: 'con';
+            font-size: 36px;
+            text-align: center;
+            color: #fff;
+        }
+        #icon .container h2{
+            margin-bottom: 40px;
+            font-size: 36px;
+            text-align: start;
+            border-top: none;     
+        }
+        #icon::after,#icon::before{
+            content: '';
+            display: block;
+            margin: 0 auto;
+            margin-top: 100px;
+            width: 736px;
+            border-bottom: 3px double #b2a89b;    
+            
+        }
+        
+        .icon-img{
+            grid-template-columns: repeat(8,1fr);
+            grid-template-rows: repeat(2,1fr);
+            background: #352e25;
+            padding: 10px;
+            border-radius: 10px;
+            border: 13px double #eef1cf;  
+        }
+        .img01{
+            grid-column: 2/4;
+            
+        }
+        .img02{
+            grid-column: 6/8;
+        }
+        .img03{
+            grid-column: 1/3;
+        }
+        .img04{
+            grid-column: 4/6;
+        }
+        .img05{
+            grid-column: 7/9;
+            padding: 0;
+        }
+        
+        #main-design h2{
+            margin: 0 auto;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            font-size: 36px;
+            text-align: center;
+            background-color:  #6c5848;
+            height: 100px;
+            width: 200px;
+            line-height: 100px; 
+            border-radius: 10px;
+            border: 3px dotted #faeddc;
+        }
+        
+        .main-design{
+            grid-template-rows: repeat(2,1fr);
+            border: 10px solid #fff;
+            border-radius: 20px;
+            background: #dab992;
+            padding: 84px 0;
+            align-items: center;
+                 
+        }
+        .img-mbox{
+            border: 4px solid #ffc978;
+            background: #ffffff;
+             
+        }
+        .img-box01{
+            position: relative;
+            width: 250px;
+            height: 300px;
+            
+        }
+        .img-box01::before{
+            content: '무제1';
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.85);
+            width: 243px;
+            height: 292px;
+            font-family: 'con';
+            font-size: 24px;
+            text-align: center;
+            line-height: 292px;
+            color: #e1f2ff;
+            
+                     
+        }
+        .img-box01.active::before{
+            display: block;
+            
+        }
+        
+
+        .img-box02{
+            grid-row: 1/2;
+            grid-column: 2/3;
+            width: 300px;
+            height: 250px;
+        }
+        .img-box03{
+            grid-row: 2/3;
+            grid-column: 1/3;
+            width: 450px;
+            height: 500px;
+        }
+        .img-box04,.img-box05{
+            display: none;
+        }
+        
+        #footer h2{
+            font-size: 36px;
+            margin-top: 42px;
+        }
+        #footer h2::before{
+            display: block;
+        }
+        #footer .potobox{
+            
+            width: 200px;
+            height: 300px;
+    
+        }
+        .fot-con{
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: 100px 1fr 100px ;
+            
+            
+        }
+        .fot-con .potobox{
+            grid-row: 2/3;
+            grid-column: 1/3;
+            justify-content: space-between;
+            
+        }
+        .fot-con article{
+            grid-row: 2/3;
+            grid-column: 2/4;
+            margin-bottom: 0;
+            margin-top: 100px;
+           
+        }
+        .fot-con article ul>li>a{
+            font-size: 20px;
+        }
+        .icon-box{
+            width: 60px;
+            height: 60px;
+            border-radius: 7px;
+        }
+        .icon-box02 img{
+            width: 56px;
+            height: 50px;
+            
+        }
+       
+    }
+        /* ----------------1280px---------------------- */
+
+
+
+        @media (min-width:1280px){
+            .header-top{
+                grid-template-columns: repeat(12,1fr);
+                padding: 60px 40px;
+            }
+        .header-top h1{
+            grid-column: 1/5;
+            text-align: left;
+            order: 1;
+            font-size: 60px;
+        }
+        .header-top .nav-btn{
+            display:none;
+        }
+        #top-nav{
+            display: block;
+        }
+        #top-nav ul li{
+            font-family: 'son';
+            font-size: 36px;
+            
+          
+        }
+        #header .img-box{
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        #profil .container{
+            display: flex;
+            flex-flow: row nowrap;
+        }
+        #profil .container h2{
+            
+            width: 300px;
+            text-align: start;
+            font-size: 48px;
+            border: none;
+        }
+        #profil .container h2::before{
+            content: '';
+            display: block;
+            margin-bottom: 300px;
+            width: 1200px;
+            height: 2px;
+            background: #b2a89b;
+            
+        }
+        #icon .container{
+            display: flex;
+            align-items: center;
+        }
+        #icon .container h2{
+            font-size: 48px;
+        }
+        #icon::after,#icon::before{
+            width: 100%;
+        }
+        .icon-img{
+            margin-left: 35px;
+            margin-top: 100px;
+            align-items: center;
+            width: 80%;
+                
+            }
+        .main{margin-top: 100px;}
+
+        .main p:first-of-type{
+            grid-column: 2/6;
+        }
+        #main-design h2{
+            margin-top: 60px;
+            font-size: 60px;
+            width: 60%;   
+        }
+        .img-box01{
+            grid-row: 1/2;
+            grid-column: 1/3;
+        }
+        .img-box02{
+            grid-row: 2/3;
+            grid-column: 2/3;
+        }
+        .img-box03{
+            grid-row: 3/4;
+            grid-column: 1/3;
+        }
+        #footer .potobox{
+            width: 300px;
+            height: 400px;
+    
+        }
+        .fot-con article ul>li>a{
+            font-size: 28px;
+        }
+        .icon-box{
+            width: 100px;
+            height: 100px;
+            border-radius: 7px;
+        }
+        .icon-box02 img{
+            width: 86px;
+            height: 80px;
+            margin: 10px 8px;
+        }
+        
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div id="wrap">      
+        <header id="header">
+            <div class="header-top">                
+                <h1>DESINGN&CAFE</h1>
+                <nav id="top-nav">
+                    <ul>                        
+                        <li><a href="#profil">◇프로필</a></li>
+                        <li><a href="#icon">◇기술</a></li>
+                        <li><a href="#main-design">◇주요디자인</a></li>
+                        <li><a href="#footer">◇CONTACT</a></li>
+                    </ul>
+                </nav>
+                <div class="nav-btn">
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                </div>
+            </div>        
+            <div class="header-bottom">
+                <div class="h-imgbox h-slider"><img src="./img/img-h01.png" alt="x"></div>
+                <div class="h-imgbox h-slider"><img src="./img/img-h02.png" alt="x"></div>
+            </div>                 
+        </header>   
+        <section id="profil">
+            <div class="container">
+                <h2>프로필</h2>
+                <div class="poto"></div>
+                <section class="main">
+                    <h3>나를 소개합니다</h3>
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam praesentium laboriosam odit fugiat eius saepe adipisci id repellendus nesciunt? Vero perspiciatis sunt velit in quos labore iste eos architecto doloremque.
+                        Sed quibusdam at vel similique consequuntur optio voluptatibus, Sed finibus metus eget neque mattis pharetra. Aliquam erat volutpat. Vestibulum aliquam diam nec 
+                    
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quos excepturi, ut quas magnam repellendus dolores pariatur cupiditate necessitatibus.
+                    </p>
+                    <p>
+                        
+                    </p>
+                </section>
+                
+            </div>
+        </section>
+        <section id="icon">
+            <div class="container clearfix">
+                <h2>나의 기술</h2>
+                <div class="icon-img">
+                    <div class="img-box img01"><img src="./img/포토샵-아이콘-w.png" alt="x"></div>
+                    <div class="img-box img02"><img src="./img/일러스트-아이콘-w.png" alt="x"></div>
+                    <div class="img-box img03"><img src="./img/html-w.png" alt="x"></div>
+                    <div class="img-box img04"><img src="./img/css-w.png" alt="x"></div>
+                    <div class="img-box img05"><img src="./img/java-w.png" alt="x"></div>
+                </div>   
+            </div>
+        </section>
+        <section id="main-design">
+            <div class="container">
+                <h2>MAIN</h2>
+                <div class="main-design">
+                    <div class="img-mbox img-box01"><img src="" alt="준비중1"></div>
+                    <div class="img-mbox img-box02"><img src="" alt="준비중2"></div>
+                    <div class="img-mbox img-box03"><img src="" alt="준비중3"></div>
+                    <div class="img-mbox img-box04"><img src="" alt="준비중4"></div>
+                    <div class="img-mbox img-box05"><img src="" alt="준비중5"></div>
+                </div>    
+            </div>
+        </section>
+        <footer id="footer">
+            <h2>CONTACT</h2>
+            
+            <div class="fot-con">
+                <h3>CONTACT</h3>
+                <div class="img-box">
+                    <img src="./img/pexels-vlada-karpovich-4451746.jpg" alt="x">
+                </div>   
+                <div class="potobox"><img src="" alt="사진준비중"></div> 
+                <article>
+                    <ul>
+                        <li>
+                            <div class="icon-box icon-box01"><img src="./img/icons8-github의-50.png" alt="x"></div>
+                        </li>
+                        <li>
+                            <a href="#">GitHub : github.com/cassis021</a>
+                        </li>
+                        <li>
+                            <div class="icon-box icon-box02"><img src="./img/e-mail.png" alt="x"></div>
+                            
+                        </li>
+                        <li>
+                        <a href="#">E-mail : qwertyu123@naver.com</a> 
+                        </li>  
+                    </ul>
+                
+                </article>
+            </div>
+                           
+        </footer>
+    </div>
+    <script src="./js/jquery_3.7.0_jquery.min.js"></script>
+    <script>
+    let currentIndex = 0;
+    
+    setInterval(function(){
+        if(currentIndex < $(".h-slider").length) {
+            currentIndex ++;
+        } else {
+            currentIndex = 0;
+        } 
+        
+        $(".h-slider").eq(currentIndex).siblings().css('opacity',0);
+        $(".h-slider").eq(currentIndex).css('opacity',1);
+        
+    },2000);
+    
+    
+    
+    $(document).ready(function(){   
+   
+        $('#footer h2').click(function(){
+            $('.fot-con').slideToggle(600,function(){
+               console.log('.fot-con');
+            });
+        });
+    });
+   
+    let imgBox = document.querySelector('.img-box01');
+    
+    imgBox.addEventListener('mouseover',function(){
+        imgBox.classList.add('active');
+    })
+    imgBox.addEventListener('mouseout',function(){
+        imgBox.classList.remove('active');
+    })
+         
+
+    </script>
+</body>
+</html>
