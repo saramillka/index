@@ -300,7 +300,7 @@
         </section>
         <section class="sec sub-slider">
             <h2>NATURE PICTURES</h2>
-            <div id="sub-con" class="slider">
+            <div id="sub-con" class="slider01">
                 <div class="slide">
                     <div class="img-box"><img src="./image/sub-slider01.jpg" alt="NATURE01"></div>
                     <div class="container">
@@ -333,7 +333,23 @@
             </div>
             
         </section>
-        <section></section>
+        <section>
+            <div class="container">
+                <div class="tit-main">
+                    <h2>MORE PICTURES</h2>
+                </div>
+                <div class="con-main g-container">
+                    <h3>더 많은 인물사진 구경하기</h3>
+                    <div class="img-box"><img src="" alt="x"></div>
+                    <a href="#">HUMEN PICTURES GALLERY</a>
+                </div>
+                <div class="con-main g-container">
+                    <h3>더 많은 동물사진 구경하기</h3>
+                    <div class="img-box"><img src="" alt="x"></div>
+                    <a href="#">ANIMEL PICTURES GALLERY</a>
+                </div>
+            </div>
+        </section>
         <footer id="footer"></footer>
     </section>
     <script>
@@ -343,6 +359,11 @@
         }
         $(document).ready(function(){
             $(".slider").bxSlider();
+        });
+        $(document).ready(function(){
+            $(".slider01").bxSlider({
+                auto:true
+            });
         });
     </script>
 </body>
